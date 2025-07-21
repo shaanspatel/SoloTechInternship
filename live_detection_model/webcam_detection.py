@@ -62,11 +62,15 @@ def main():
             print("Error: Could not read frame")
             break
         
+        # Convert frame to grayscale and back to 3-channel for model input
+        gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray_frame_3ch = cv2.cvtColor(gray_frame, cv2.COLOR_GRAY2BGR)
+
         # Create a copy for drawing
         display_frame = frame.copy()
         
-        # Run detection
-        results = model(frame, conf=confidence, verbose=False)
+        # Run detection on grayscale frame
+        results = model(gray_frame_3ch, conf=confidence, verbose=False)
         
         # Draw detections
         for result in results:
