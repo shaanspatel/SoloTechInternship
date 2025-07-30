@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+opencv-python
+requests
+litserve
+ultralytics
+pydantic
+kokoro>=0.9.4
+soundfile
+torch
+numpy
